@@ -9,7 +9,7 @@
     "build": "tsc",
     "lint": "biome lint",
     "format": "biome format",
-    "test": "jest --testEnvironment=node",
+    "test": "jest --testEnvironment=node --verbose",
     "prebuild": "npm run lint",
     "pretest": "npm run lint"
   },
@@ -33,6 +33,7 @@
     "eslint": "^8.0.0",
     "jest": "^29.7.0",
     "jest-circus": "^27.0.0",
+    "jest-environment-node": "^29.7.0",
     "ts-jest": "^29.2.5",
     "tsconfig-paths": "^4.2.0",
     "tsx": "^4.19.1",
