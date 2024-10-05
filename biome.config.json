@@ -1,0 +1,12 @@
+{
+  "lint": {
+    "rules": {
+      "no-unused-vars": "warn",
+      "semi": "error"
+    }
+  },
+  "formatter": {
+    "printWidth": 80,
+    "tabWidth": 2
+  }
+}
