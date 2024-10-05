@@ -26,7 +26,8 @@
   "author": "Bruno de Almeida Aseff",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^27.0.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^22.7.4",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "biome": "^0.3.3",
