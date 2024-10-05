@@ -17,18 +17,12 @@ To install the package, run:
 npm install random-password-typescript
 ```
 
-or
-
-```bash
-yarn add password-generator-lib
-```
-
 ## Usage
 
 Import the `generatePassword` function into your code and customize the password using the options you need.
 
 ```typescript
-import { generatePassword } from "password-generator-lib";
+import { generatePassword } from "random-password-typescript";
 
 // Simple password generation
 const password = generatePassword(1);

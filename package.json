@@ -2,7 +2,7 @@
   "name": "random-password-typescript",
   "version": "1.0.0",
   "description": "A typesafe, secure password generator.",
-  "main": "dist/index.js",
+  "main": "src/password.ts",
   "type": "module",
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -23,7 +23,7 @@
     "random",
     "npm"
   ],
-  "author": "",
+  "author": "Bruno de Almeida Aseff",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^27.0.0",
