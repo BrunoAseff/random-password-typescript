@@ -1,6 +1,6 @@
-# Password Generator Library
+# random-password-typescript
 
-This is a flexible password generation library written in TypeScript. It allows you to customize your password with a variety of options, such as length, character sets, exclusions, patterns, and more.
+This project aims to provide a type-safe, secure, and versatile password generator specifically designed for TypeScript users. By leveraging TypeScript's strict typing system, we ensure that password generation is done with clear, predictable, and flexible options. Whether you need a simple password or a highly complex one, this library offers a complete set of customizable options to fit your specific requirements.
 
 ## Prerequisites
 
@@ -136,35 +136,3 @@ const password = generatePassword(1, {
 });
 console.log(password); // Example: 'a1B3-xC97'
 ```
-
-## Running Tests
-
-If you have tests (e.g., in `src/password.test.ts`), you can run them with a testing framework like **Jest**.
-
-To install **Jest**, run:
-
-```bash
-npm install --save-dev jest
-```
-
-Then, add the following to your `package.json`:
-
-```json
-"scripts": {
-  "test": "jest"
-}
-```
-
-Run tests using:
-
-```bash
-npm test
-```
-
-## License
-
-MIT License. See the `LICENSE` file for details.
-
----
-
-This `README.md` provides comprehensive details on how to use your library, from installation to examples of all available options.
