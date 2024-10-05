@@ -1,6 +1,6 @@
 {
   "name": "random-password-typescript",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A typesafe, secure password generator.",
   "main": "src/password.ts",
   "type": "module",
