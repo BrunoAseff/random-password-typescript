@@ -1,17 +1,21 @@
 # random-password-typescript
 
-This project aims to provide a type-safe, secure, and versatile password generator specifically designed for TypeScript users. By leveraging TypeScript's strict typing system, we ensure that password generation is done with clear, predictable, and flexible options. Whether you need a simple password or a highly complex one, this library offers a complete set of customizable options to fit your specific requirements.
+This library is a type-safe, secure, and customizable password generator for TypeScript users. It leverages TypeScript’s strict typing system, making password generation flexible, predictable, and tailored to your needs—whether you're after a basic password or something more complex.
+
+**Note**: This library uses Node.js’s `crypto` module, so it won’t run in the browser. If you need it in a web app, consider creating an API route.
+
+[Check it out on GitHub!](https://github.com/BrunoAseff/random-password-typescript)
 
 ## Prerequisites
 
-To use this library, you'll need:
+You'll need:
 
-- **Node.js** (version 14.x or higher recommended)
-- **TypeScript** (if working directly with TypeScript)
+- **Node.js** (version 14.x or higher)
+- **TypeScript** (if you're working directly with TypeScript)
 
 ## Installation
 
-To install the package, run:
+Install via npm:
 
 ```bash
 npm install random-password-typescript
@@ -19,7 +23,7 @@ npm install random-password-typescript
 
 ## Usage
 
-Import the `generatePassword` function into your code and customize the password using the options you need.
+Import the `generatePassword` function and get started:
 
 ```typescript
 import { generatePassword } from "random-password-typescript";
@@ -27,8 +31,13 @@ import { generatePassword } from "random-password-typescript";
 // Simple password generation
 const password = generatePassword(1);
 console.log(password); // Randomly generated password
+```
 
-// Generate multiple passwords with options
+### Generating Multiple Passwords
+
+The first argument is a number representing how many passwords you want, and the second is an object with the customization options.
+
+```typescript
 const passwords = generatePassword(5, {
   length: 12,
   useNumbers: true,
@@ -42,91 +51,27 @@ console.log(passwords); // Array of 5 passwords
 
 ## Options
 
-Here is a list of all the available options you can use to customize password generation:
+Here’s a breakdown of the available options to tweak your password generation:
 
-| Option                     | Type               | Default     | Description                                                                                                |
-| -------------------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
-| `length`                   | `number`           | `undefined` | Defines the exact length of the password.                                                                  |
-| `randomLength`             | `boolean`          | `false`     | If `true`, generates a random length within a defined range.                                               |
-| `minLength`                | `number`           | `8`         | Minimum length of the password (used if `randomLength` is `true`).                                         |
-| `maxLength`                | `number`           | `16`        | Maximum length of the password (used if `randomLength` is `true`).                                         |
-| `lengthRange`              | `[number, number]` | `undefined` | Defines a specific range for random length generation.                                                     |
-| `useNumbers`               | `boolean`          | `true`      | Includes numbers in the password.                                                                          |
-| `useSymbols`               | `boolean`          | `true`      | Includes symbols in the password.                                                                          |
-| `lowercaseOnly`            | `boolean`          | `false`     | Generates password using only lowercase characters.                                                        |
-| `uppercaseOnly`            | `boolean`          | `false`     | Generates password using only uppercase characters.                                                        |
-| `excludeSimilarCharacters` | `boolean`          | `false`     | Excludes similar characters like `oO0iIl1`.                                                                |
-| `excludeWords`             | `string[]`         | `[]`        | Excludes specific words or phrases from appearing in the password.                                         |
-| `excludeChars`             | `string[]`         | `[]`        | Excludes specific characters from the password.                                                            |
-| `mustHave`                 | `string[]`         | `[]`        | Requires specific characters to appear in the password.                                                    |
-| `startsWith`               | `string`           | `""`        | Specifies a string that the password must start with.                                                      |
-| `endsWith`                 | `string`           | `""`        | Specifies a string that the password must end with.                                                        |
-| `pattern`                  | `string`           | `""`        | Specifies a pattern for password generation. Use `L` for lowercase, `U` for uppercase, and `D` for digits. |
+| Option                     | Type               | Default     | Description                                                                                    |
+| -------------------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------- |
+| `length`                   | `number`           | `undefined` | Sets the exact password length.                                                                |
+| `randomLength`             | `boolean`          | `false`     | If true, generates a random length within a specified range.                                   |
+| `minLength`                | `number`           | `8`         | Minimum password length (if `randomLength` is true).                                           |
+| `maxLength`                | `number`           | `16`        | Maximum password length (if `randomLength` is true).                                           |
+| `lengthRange`              | `[number, number]` | `undefined` | Defines a range for random length generation.                                                  |
+| `useNumbers`               | `boolean`          | `true`      | Include numbers in the password.                                                               |
+| `useSymbols`               | `boolean`          | `true`      | Include symbols in the password.                                                               |
+| `lowercaseOnly`            | `boolean`          | `false`     | Only lowercase characters.                                                                     |
+| `uppercaseOnly`            | `boolean`          | `false`     | Only uppercase characters.                                                                     |
+| `excludeSimilarCharacters` | `boolean`          | `false`     | Excludes visually similar characters like `oO0`, `iIl1`.                                       |
+| `excludeWords`             | `string[]`         | `[]`        | Exclude specific words from appearing in the password.                                         |
+| `excludeChars`             | `string[]`         | `[]`        | Exclude specific characters from the password.                                                 |
+| `mustHave`                 | `string[]`         | `[]`        | Characters that must appear in the password.                                                   |
+| `startsWith`               | `string`           | `""`        | Specifies a string the password must start with.                                               |
+| `endsWith`                 | `string`           | `""`        | Specifies a string the password must end with.                                                 |
+| `pattern`                  | `string`           | `""`        | Pattern for password generation. Use `L` for lowercase, `U` for uppercase, and `D` for digits. |
 
-### Option Details
+---
 
-- **length**: Defines the fixed length of the password.
-- **randomLength**: If enabled, the password length will be randomly chosen within a specified range.
-- **minLength** and **maxLength**: These values define the lower and upper bounds of the random password length.
-- **lengthRange**: Alternative to minLength and maxLength, where you can specify the exact range as an array (e.g., `[8, 12]`).
-- **useNumbers** and **useSymbols**: Determines if numbers (`0-9`) or symbols (like `@`, `#`, etc.) should be included.
-- **lowercaseOnly** and **uppercaseOnly**: Restrict the password to only lowercase or only uppercase characters.
-- **excludeSimilarCharacters**: Excludes visually similar characters (e.g., `0` and `O`, `1` and `l`).
-- **excludeWords**: List of words that should not appear in the password (case-insensitive).
-- **excludeChars**: List of characters that should not be included in the password.
-- **mustHave**: List of characters that must appear in the password.
-- **startsWith** and **endsWith**: Forces the password to begin or end with a specific string.
-- **pattern**: If set, the password will be generated following the pattern. Use `L` for lowercase, `U` for uppercase, and `D` for digits.
-
-## Examples
-
-### 1. Generate a simple password with default settings
-
-```typescript
-const password = generatePassword(1);
-console.log(password); // Example: 'A9lD#oP8'
-```
-
-### 2. Generate a password with a specific length and required characters
-
-```typescript
-const password = generatePassword(1, {
-  length: 12,
-  useSymbols: true,
-  mustHave: ["!", "1"],
-  startsWith: "Start",
-});
-console.log(password); // Example: 'Start5z!1P@W'
-```
-
-### 3. Generate multiple passwords with random lengths
-
-```typescript
-const passwords = generatePassword(3, {
-  randomLength: true,
-  lengthRange: [8, 12],
-  useNumbers: true,
-  useSymbols: false,
-});
-console.log(passwords); // Example: ['aBcD1234', 'XYZaBc9', 'wxy123AB']
-```
-
-### 4. Generate password with exclusions
-
-```typescript
-const password = generatePassword(1, {
-  length: 10,
-  excludeChars: ["a", "A", "1"],
-  excludeSimilarCharacters: true,
-});
-console.log(password); // Example: 'B2l$zDnW7'
-```
-
-### 5. Generate a password using a custom pattern
-
-```typescript
-const password = generatePassword(1, {
-  pattern: "LULD-ULDD",
-});
-console.log(password); // Example: 'a1B3-xC97'
-```
+That’s it! Play around with the options and generate passwords tailored to your exact needs. Feel free to check out the project on [GitHub](https://github.com/BrunoAseff/random-password-typescript) for more details.
